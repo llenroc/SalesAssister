@@ -14,4 +14,6 @@
     <ul>
         <li>@Html.DisplayFor(x => salesperson.Company)</li>
     </ul>
+    <p>@Html.ActionLink("DASHBOARD", "Index", "Clients", new { id = salesperson.SalesPersonId })</p>
+    <hr />
 }
