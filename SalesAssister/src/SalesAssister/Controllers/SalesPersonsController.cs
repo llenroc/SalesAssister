@@ -45,5 +45,20 @@ namespace SalesAssister.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Delete(int id)
+        {
+            var thisItem = db.SalesPersons.FirstOrDefault(salesperson => salesperson.SalesPersonId == id);
+            return View(thisItem);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisItem = db.SalesPersons.FirstOrDefault(salesperons => salesperons.SalesPersonId == id);
+            db.SalesPersons.Remove(thisItem);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -10,7 +10,7 @@
 
 @foreach(var salesperson in Model)
 {
-    <h5>@Html.DisplayFor(x => salesperson.Name) | @Html.ActionLink("EDIT", "Edit", new { id = salesperson.SalesPersonId })</h5>
+    <h5>@Html.DisplayFor(x => salesperson.Name) | @Html.ActionLink("EDIT", "Edit", new { id = salesperson.SalesPersonId }) | @Html.ActionLink("DELETE", "Delete", new { id = salesperson.SalesPersonId })</h5>
     <ul>
         <li>@Html.DisplayFor(x => salesperson.Company)</li>
     </ul>
