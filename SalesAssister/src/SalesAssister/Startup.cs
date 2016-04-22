@@ -14,7 +14,7 @@ namespace SalesAssister
         
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services.AddMvc();
         }
 
         
@@ -22,13 +22,21 @@ namespace SalesAssister
         {
             app.UseIISPlatformHandler();
 
+            app.UseStaticFiles();
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
+
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
             });
         }
 
-        // Entry point for the application.
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
     }
 }
