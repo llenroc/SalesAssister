@@ -10,7 +10,9 @@
 </head>
 <body>
     <nav class="navbar navbar-default">
-        <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
+        </ul>
     </nav>
     <div class="container">
         @RenderBody()
