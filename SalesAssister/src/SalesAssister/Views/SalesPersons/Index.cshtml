@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<SalesAssister.Models.SalesPerson>
+
+<h3 class="salesPeople">SALES PEOPLE</h3>
+
+@foreach(var salesperson in Model)
+{
+    <h5>@Html.DisplayFor(x => salesperson.Name)</h5>
+    <ul>
+        <li>@Html.DisplayFor(x => salesperson.Company)</li>
+    </ul>
+}
