@@ -7,12 +7,29 @@
 
 <h3 class="salesPeople">@Html.DisplayFor(x => x[0].salesperson.Name)'s Clients</h3>
 
+<table class="table">
+    <tr>
+        <th>
+            <p>NAME</p>
+        </th>
+        <th>
+            <p>EMAIL</p>
+        </th>
+        <th>
+            <p>PHONE</p>
+        </th>
+    </tr>
+  @foreach (var client in Model)
+  {
+      <tr>
+          <td>@Html.DisplayFor(x => client.Name)</td>
+          <td>@Html.DisplayFor(x => client.Email)</td>
+          <td>@Html.DisplayFor(x => client.Phone)</td>
+      </tr>   
+  }
+</table>
 
-@foreach (var client in Model)
-{
-    <p>@Html.DisplayFor(x => client.Name)</p>
-    <ul>
-        <li>@Html.DisplayFor(x => client.Email)</li>
-        <li>@Html.DisplayFor(x => client.Phone)</li>
-    </ul>
-}
+
+
+
+    

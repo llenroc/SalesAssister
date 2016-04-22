@@ -24,7 +24,7 @@ namespace SalesAssister.Controllers
             }
             else
             {
-                return View(db.SalesPersons.ToList());
+                return View();
             } 
         }
     }
