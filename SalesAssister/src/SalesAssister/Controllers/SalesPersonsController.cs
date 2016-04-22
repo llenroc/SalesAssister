@@ -18,5 +18,18 @@ namespace SalesAssister.Controllers
         {
             return View(db.SalesPersons.ToList());
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(SalesPerson salesperson)
+        {
+            db.SalesPersons.Add(salesperson);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

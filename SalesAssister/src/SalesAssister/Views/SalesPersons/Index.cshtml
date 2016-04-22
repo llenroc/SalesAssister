@@ -6,6 +6,7 @@
 @model IEnumerable<SalesAssister.Models.SalesPerson>
 
 <h3 class="salesPeople">SALES PEOPLE</h3>
+<p>@Html.ActionLink("ADD", "Create")</p>
 
 @foreach(var salesperson in Model)
 {
