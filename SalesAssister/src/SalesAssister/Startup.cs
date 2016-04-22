@@ -6,15 +6,31 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Data.Entity;
+using SalesAssister.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace SalesAssister
 {
     public class Startup
     {
-        
+        public IConfigurationRoot Configuration { get; set; }
+
+        public Startup(IHostingEnvironment env)
+        {
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json");
+            Configuration = builder.Build();
+        }
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddEntityFramework()
+                .AddSqlServer()
+                .AddDbContext<SalesAssisterDbContext>(options =>
+                options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
         }
 
         
