@@ -31,5 +31,19 @@ namespace SalesAssister.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit(int id)
+        {
+            var salesPerson = db.SalesPersons.FirstOrDefault(salesperson => salesperson.SalesPersonId == id);
+            return View(salesPerson);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(SalesPerson salesperson)
+        {
+            db.Entry(salesperson).State = Microsoft.Data.Entity.EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

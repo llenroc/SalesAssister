@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SalesAssister.Models.SalesPerson
+
+<h3 class="salesPeople">EDIT: @Html.DisplayFor(model => model.Name)</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.SalesPersonId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Company)
+    @Html.EditorFor(model => model.Company)
+
+    <input type="submit" value="Save" />
+}
