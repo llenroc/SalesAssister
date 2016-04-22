@@ -8,6 +8,7 @@
 <h3 class="salesPeople">SALES PEOPLE</h3>
 <p>@Html.ActionLink("ADD", "Create")</p>
 
+
 @foreach(var salesperson in Model)
 {
     <h5>@Html.DisplayFor(x => salesperson.Name) | @Html.ActionLink("EDIT", "Edit", new { id = salesperson.SalesPersonId }) | @Html.ActionLink("DELETE", "Delete", new { id = salesperson.SalesPersonId })</h5>
@@ -17,3 +18,5 @@
     <p>@Html.ActionLink("DASHBOARD", "Index", "Clients", new { id = salesperson.SalesPersonId })</p>
     <hr />
 }
+
+@Html.ActionLink("ADD CLIENT", "Create", "Clients", null, new { @class = "btn btn-info" })

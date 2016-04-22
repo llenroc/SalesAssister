@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using SalesAssister.Models;
 using Microsoft.Data.Entity;
+using Microsoft.AspNet.Mvc.Rendering;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -27,5 +28,32 @@ namespace SalesAssister.Controllers
                 return View();
             } 
         }
+
+        public IActionResult Create()
+        {
+            ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Client client)
+        {
+            db.Clients.Add(client);
+            db.SaveChanges();
+            return RedirectToAction("Index", "SalesPersons");
+        }
+        //public IActionResult Edit(int id)
+        //{
+        //    var thisClient = db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+
+        //    ViewBag.ClientId
+        //}
+
+        //public IActionResult Edit(Client client)
+        //{
+        //    db.Entry(client).State = EntityState.Modified;
+        
+        //}
     }
 }

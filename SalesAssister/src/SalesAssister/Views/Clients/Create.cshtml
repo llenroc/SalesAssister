@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SalesAssister.Models.Client
+
+<h3 class="salesPeople">ADD NEW CLIENT</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.LabelFor(model => model.Phone)
+    @Html.EditorFor(model => model.Phone)
+
+    @Html.LabelFor(model => model.Email)
+    @Html.EditorFor(model => model.Email)
+
+    @Html.LabelFor(model => model.SalesPersonId, "Sales Person")
+    @Html.DropDownList("SalesPersonId")
+
+    <input type="submit" value="Create" class="btn btn-info" />
+}
