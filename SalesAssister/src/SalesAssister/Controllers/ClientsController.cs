@@ -43,17 +43,22 @@ namespace SalesAssister.Controllers
             db.SaveChanges();
             return RedirectToAction("Index", "SalesPersons");
         }
-        //public IActionResult Edit(int id)
-        //{
-        //    var thisClient = db.Clients.FirstOrDefault(clients => clients.ClientId == id);
-
-        //    ViewBag.ClientId
-        //}
-
-        //public IActionResult Edit(Client client)
-        //{
-        //    db.Entry(client).State = EntityState.Modified;
         
-        //}
+        public IActionResult Edit(int id)
+        {
+            var thisClient = db.Clients.FirstOrDefault(clients => clients.ClientId == id);
+
+            ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
+
+            return View(thisClient);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Client client)
+        {
+            db.Entry(client).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "SalesPersons");
+        }
     }
 }
