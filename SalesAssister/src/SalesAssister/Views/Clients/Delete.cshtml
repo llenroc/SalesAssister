@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SalesAssister.Models.Client
+
+<h3 class="salesPeople">DELETE: @Html.DisplayFor(model => model.Name)</h3>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Delete" />
+}
