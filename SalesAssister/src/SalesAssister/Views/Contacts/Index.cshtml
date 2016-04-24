@@ -1,0 +1,8 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IList<SalesAssister.Models.Contact>
+
+<h3 class="salesPeople">Notes for @Html.DisplayFor(x => x[0].client.Name)</h3>

@@ -7,8 +7,6 @@ using SalesAssister.Models;
 using Microsoft.Data.Entity;
 using Microsoft.AspNet.Mvc.Rendering;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace SalesAssister.Controllers
 {
     public class ClientsController : Controller
