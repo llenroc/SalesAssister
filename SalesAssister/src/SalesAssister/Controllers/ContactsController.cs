@@ -41,5 +41,26 @@ namespace SalesAssister.Controllers
 
             return RedirectToAction("Index", "SalesPersons");
         }
+
+        public IActionResult Edit(int id)
+        {
+            var thisContact = db.Contacts.FirstOrDefault(contacts => contacts.ContactId == id);
+
+            ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
+
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
+
+            return View(thisContact);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Contact contact)
+        {
+            db.Entry(contact).State = EntityState.Modified;
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "SalesPersons");
+        }
+
     }
 }

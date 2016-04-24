@@ -5,11 +5,12 @@
 
 @model SalesAssister.Models.Contact
 
-<h3 class="salesPeople">ADD NOTES FOR CLIENT</h3>
+<h3 class="salesPeople">EDIT</h3>
 
 @using (Html.BeginForm())
 {
-    
+    @Html.HiddenFor(model => model.ContactId)
+
     @Html.LabelFor(model => model.Notes)
     @Html.TextAreaFor(model => model.Notes)
 
@@ -19,5 +20,5 @@
     @Html.LabelFor(model => model.ClientId, "For Client")
     @Html.DropDownList("ClientId")
 
-    <input type="submit" value="Create" class="btn btn-info" />
+    <input type="submit" value="Save" class="btn btn-info" />
 }
