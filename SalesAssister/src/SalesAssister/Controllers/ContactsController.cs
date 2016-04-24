@@ -62,5 +62,23 @@ namespace SalesAssister.Controllers
             return RedirectToAction("Index", "SalesPersons");
         }
 
+        public IActionResult Delete(int id)
+        {
+            var thisItem = db.Contacts.FirstOrDefault(contact => contact.ContactId == id);
+
+            return View(thisItem);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var thisItem = db.Contacts.FirstOrDefault(contact => contact.ContactId == id);
+
+            db.Contacts.Remove(thisItem);
+
+            db.SaveChanges();
+            return RedirectToAction("Index", "SalesPersons");
+        }
+
     }
 }

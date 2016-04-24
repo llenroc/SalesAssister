@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [SalesAssister]    Script Date: 4/24/16 12:41:16 PM ******/
+/****** Object:  Database [SalesAssister]    Script Date: 4/24/16 2:08:24 PM ******/
 CREATE DATABASE [SalesAssister]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -75,7 +75,7 @@ ALTER DATABASE [SalesAssister] SET DELAYED_DURABILITY = DISABLED
 GO
 USE [SalesAssister]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 4/24/16 12:41:16 PM ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 4/24/16 2:08:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -90,7 +90,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Clients]    Script Date: 4/24/16 12:41:16 PM ******/
+/****** Object:  Table [dbo].[Clients]    Script Date: 4/24/16 2:08:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ CREATE TABLE [dbo].[Clients](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Contacts]    Script Date: 4/24/16 12:41:16 PM ******/
+/****** Object:  Table [dbo].[Contacts]    Script Date: 4/24/16 2:08:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,7 +125,7 @@ CREATE TABLE [dbo].[Contacts](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[SalesPersons]    Script Date: 4/24/16 12:41:16 PM ******/
+/****** Object:  Table [dbo].[SalesPersons]    Script Date: 4/24/16 2:08:24 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -160,6 +160,14 @@ INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALU
 INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (2, 2, N'Barbara agreed to meet with me tomorrow to discuss our services', 1)
 INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (3, 3, N'Left a message for Michael Jordan', 2)
 INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (4, 4, N'Met with Oprah today to disucss our paper products, and how they can help her magazine and other businesses.', 2)
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (5, 1, N'Talked to the client today. Sounds interested. Scheduled a meeting for next Monday.', 1)
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (6, 5, N'Had lunch to talk some business. ', 1)
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (7, 8, N'Client is currently working with one of our competitors. May be a longer term project to have them switch. ', 1)
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (8, 9, N'Spoke with client briefly on the phone. Said that he wasn''t interested. ', 1)
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (9, 6, N'Tried meeting with Mrs. Obama at the White House to discuss our products. They wouldn''t let me in. ', 2)
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [SalesPersonId]) VALUES (10, 7, N'Met with Barney to talk business. We sang songs. 
+
+Barney is not in the market for commercial paper products.', 2)
 SET IDENTITY_INSERT [dbo].[Contacts] OFF
 SET IDENTITY_INSERT [dbo].[SalesPersons] ON 
 
