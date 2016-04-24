@@ -6,3 +6,8 @@
 @model IList<SalesAssister.Models.Contact>
 
 <h3 class="salesPeople">Notes for @Html.DisplayFor(x => x[0].client.Name)</h3>
+
+@foreach(var client in Model)
+{
+    <p>- @Html.DisplayFor(x => client.Notes)</p>
+}
