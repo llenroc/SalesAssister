@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
 using SalesAssister.Models;
-
+using Microsoft.AspNet.Mvc.Rendering;
 
 namespace SalesAssister.Controllers
 {
@@ -22,6 +22,24 @@ namespace SalesAssister.Controllers
                 .ToList();
 
             return View(contactDetails);
+        }
+
+        public IActionResult Create()
+        {
+           ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
+
+            ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Contact contact)
+        {
+            db.Contacts.Add(contact);
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "SalesPersons");
         }
     }
 }

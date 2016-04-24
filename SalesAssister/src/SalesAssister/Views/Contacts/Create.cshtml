@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SalesAssister.Models.Contact
+
+<h3 class="salesPeople">ADD NOTES FOR CLIENT</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Notes)
+    @Html.TextAreaFor(model => model.Notes)
+
+    @Html.LabelFor(model => model.SalesPersonId, "Sales Person")
+    @Html.DropDownList("SalesPersonId")
+
+    @Html.LabelFor(model => model.ClientId, "For Client")
+    @Html.DropDownList("ClientId")
+
+    <input type="submit" value="Create" class="btn btn-info" />
+}
