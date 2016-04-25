@@ -9,7 +9,7 @@
 
 @foreach(var client in Model)
 {
-    <p>- @Html.DisplayFor(x => client.Notes) - @Html.ActionLink("EDIT", "Edit", new { id = client.ContactId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ContactId })</p>
+    <p>- @Html.DisplayFor(x => client.Notes) -- @Html.ActionLink("EDIT", "Edit", new { id = client.ContactId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ContactId })</p>
 }
 
 @Html.ActionLink("ADD NOTES", "Create", "Contacts", null, new { @class = "btn btn-info" })
