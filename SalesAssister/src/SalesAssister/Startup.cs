@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Data.Entity;
 using SalesAssister.Models;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SalesAssister
 {
@@ -16,7 +17,7 @@ namespace SalesAssister
     {
         public IConfigurationRoot Configuration { get; set; }
 
-        public Startup(IHostingEnvironment env)
+        public Startup()
         {
             var builder = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json");
@@ -29,14 +30,19 @@ namespace SalesAssister
 
             services.AddEntityFramework()
                 .AddSqlServer()
-                .AddDbContext<SalesAssisterDbContext>(options =>
+                .AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
         }
 
         
         public void Configure(IApplicationBuilder app)
         {
             app.UseIISPlatformHandler();
+
+            app.UseIdentity();
 
             app.UseStaticFiles();
 
