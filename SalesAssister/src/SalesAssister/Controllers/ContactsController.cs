@@ -35,6 +35,7 @@ namespace SalesAssister.Controllers
             return View(contactDetails);
         }
 
+        //Crud stuff
         //public IActionResult Create()
         //{
         //   ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
