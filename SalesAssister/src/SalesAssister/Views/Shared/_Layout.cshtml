@@ -8,12 +8,30 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
 </head>
+@using System.Security.Claims
+
 <body>
     <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-            <li>@Html.ActionLink("HOME", "Index", "Home")</li>
-            <li>@Html.ActionLink("LOGIN", "Index", "Account")</li>
-        </ul>
+        <div >
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("HOME", "Index", "Home")</li>    
+            </ul>
+           
+            @if (User.IsSignedIn())
+            {
+                @using (Html.BeginForm("LogOff", "Account"))
+                {
+                    <input type="submit" id="logout" class="btn btn-default" value="Log out" />
+                }
+            }
+            else
+            {
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("LOGIN", "Login", "Account")</li>
+                </ul>
+                
+            }
+        </div>
     </nav>
     <div class="container">
         @RenderBody()

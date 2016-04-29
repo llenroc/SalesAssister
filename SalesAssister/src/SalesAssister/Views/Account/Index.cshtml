@@ -5,13 +5,6 @@
 
 @using System.Security.Claims
 
-<nav class="navbar navbar-default">
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-default" value="Log out" />
-    }
-</nav>
-
 <h2 class="salesPeople">Sales Assister Login</h2>
 <hr />
 
@@ -21,6 +14,5 @@
 }
 else
 {
-    <p>@Html.ActionLink("Log in", "Login")</p>
     <p>@Html.ActionLink("Register", "Register")</p>
 }
