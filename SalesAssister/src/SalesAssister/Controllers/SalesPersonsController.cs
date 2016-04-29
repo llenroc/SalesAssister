@@ -1,64 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
-using SalesAssister.Models;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+//using Microsoft.AspNet.Mvc;
+//using SalesAssister.Models;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+//// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace SalesAssister.Controllers
-{
-    public class SalesPersonsController : Controller
-    {
-        private SalesAssisterDbContext db = new SalesAssisterDbContext();
+//namespace SalesAssister.Controllers
+//{
+//    public class SalesPersonsController : Controller
+//    {
+//        private SalesAssisterDbContext db = new SalesAssisterDbContext();
 
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View(db.SalesPersons.ToList());
-        }
+//        // GET: /<controller>/
+//        public IActionResult Index()
+//        {
+//            return View(db.SalesPersons.ToList());
+//        }
 
-        public IActionResult Create()
-        {
-            return View();
-        }
+//        public IActionResult Create()
+//        {
+//            return View();
+//        }
 
-        [HttpPost]
-        public IActionResult Create(SalesPerson salesperson)
-        {
-            db.SalesPersons.Add(salesperson);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+//        [HttpPost]
+//        public IActionResult Create(SalesPerson salesperson)
+//        {
+//            db.SalesPersons.Add(salesperson);
+//            db.SaveChanges();
+//            return RedirectToAction("Index");
+//        }
 
-        public IActionResult Edit(int id)
-        {
-            var salesPerson = db.SalesPersons.FirstOrDefault(salesperson => salesperson.SalesPersonId == id);
-            return View(salesPerson);
-        }
+//        public IActionResult Edit(int id)
+//        {
+//            var salesPerson = db.SalesPersons.FirstOrDefault(salesperson => salesperson.SalesPersonId == id);
+//            return View(salesPerson);
+//        }
 
-        [HttpPost]
-        public IActionResult Edit(SalesPerson salesperson)
-        {
-            db.Entry(salesperson).State = Microsoft.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+//        [HttpPost]
+//        public IActionResult Edit(SalesPerson salesperson)
+//        {
+//            db.Entry(salesperson).State = Microsoft.Data.Entity.EntityState.Modified;
+//            db.SaveChanges();
+//            return RedirectToAction("Index");
+//        }
 
-        public IActionResult Delete(int id)
-        {
-            var thisItem = db.SalesPersons.FirstOrDefault(salesperson => salesperson.SalesPersonId == id);
-            return View(thisItem);
-        }
+//        public IActionResult Delete(int id)
+//        {
+//            var thisItem = db.SalesPersons.FirstOrDefault(salesperson => salesperson.SalesPersonId == id);
+//            return View(thisItem);
+//        }
 
-        [HttpPost, ActionName("Delete")]
-        public IActionResult DeleteConfirmed(int id)
-        {
-            var thisItem = db.SalesPersons.FirstOrDefault(salesperons => salesperons.SalesPersonId == id);
-            db.SalesPersons.Remove(thisItem);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-    }
-}
+//        [HttpPost, ActionName("Delete")]
+//        public IActionResult DeleteConfirmed(int id)
+//        {
+//            var thisItem = db.SalesPersons.FirstOrDefault(salesperons => salesperons.SalesPersonId == id);
+//            db.SalesPersons.Remove(thisItem);
+//            db.SaveChanges();
+//            return RedirectToAction("Index");
+//        }
+//    }
+//}

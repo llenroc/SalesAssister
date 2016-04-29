@@ -24,16 +24,16 @@ namespace SalesAssister.Controllers
             _env = env;
         }
 
-        public IActionResult Index(int id)
-        {
-            var contactDetails = _db.Contacts
-                .Where(x => x.ClientId == id)
-                .Include(x => x.salesperson)
-                .Include(x => x.client)
-                .ToList();
+        //public IActionResult Index(int id)
+        //{
+        //    var contactDetails = _db.Contacts
+        //        .Where(x => x.ClientId == id)
+        //        .Include(x => x.salesperson)
+        //        .Include(x => x.client)
+        //        .ToList();
 
-            return View(contactDetails);
-        }
+        //    return View(contactDetails);
+        //}
 
         //Crud stuff
         //public IActionResult Create()
