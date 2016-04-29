@@ -8,32 +8,36 @@ using Microsoft.Data.Entity;
 using SalesAssister.Models;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.AspNet.Hosting;
+using System.Security.Claims;
 
 namespace SalesAssister.Controllers
 {
     public class ContactsController : Controller
     {
         private readonly ApplicationDbContext _db;
-        private readonly UserManager<ApplicationUser> _userManger;
+        private readonly UserManager<ApplicationUser> _userManager;
         private IHostingEnvironment _env;
 
         public ContactsController(UserManager<ApplicationUser> userManager, ApplicationDbContext db, IHostingEnvironment env)
         {
-            _userManger = userManager;
+            _userManager = userManager;
             _db = db;
             _env = env;
         }
 
-        //public IActionResult Index(int id)
-        //{
-        //    var contactDetails = _db.Contacts
-        //        .Where(x => x.ClientId == id)
-        //        .Include(x => x.salesperson)
-        //        .Include(x => x.client)
-        //        .ToList();
+        public async Task<IActionResult> Index(int id)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
 
-        //    return View(contactDetails);
-        //}
+            var theView = await _db.Clients
+                .FirstOrDefaultAsync(x => x.ClientId == id);
+
+            ViewBag.Contacts = _db.Contacts
+                .Where(x => x.ClientId == id)
+                .ToList();
+
+            return View(theView);
+        }
 
         //Crud stuff
         //public IActionResult Create()
