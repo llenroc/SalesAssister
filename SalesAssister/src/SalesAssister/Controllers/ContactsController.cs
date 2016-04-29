@@ -39,6 +39,19 @@ namespace SalesAssister.Controllers
             return View(theView);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> addNotes(Contact Contact)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+
+            Contact.User = currentUser;
+
+            _db.Contacts.Add(Contact);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
+        }
+
         //Crud stuff
         //public IActionResult Create()
         //{

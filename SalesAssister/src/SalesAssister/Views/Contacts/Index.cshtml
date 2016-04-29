@@ -18,4 +18,26 @@
     }
 
 }
+else
+{
+    <p>No notes for client</p>
+}
 
+@using (Html.BeginForm("addNotes", "Contacts"))
+{
+    <h3>Add Contact Notes</h3>
+
+    <input type="hidden" name="ClientId" value="@Model.ClientId" />
+
+    <div>Meeting Notes</div>
+    <textarea type="text" name="Notes" value="@ViewBag.Notes"></textarea>
+
+    <div>Date</div>
+    <input type="date" name="Date" value="@ViewBag.Date"/>
+
+    <br />
+    <br />
+    <div>
+        <input type="submit" value="Save" class="btn btn-warning" />
+    </div>
+}
