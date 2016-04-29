@@ -5,23 +5,27 @@
 
 @model SalesAssister.Models.Client
 
-<h3 class="salesPeople">EDIT @Html.DisplayFor(model => model.Name)</h3>
+<h3 class="salesPeople">EDIT: @Html.DisplayFor(model => model.Name)</h3>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Clients"))
 {
-    @Html.HiddenFor(model => model.ClientId)
-
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
-
-    @Html.LabelFor(model => model.Email)
-    @Html.EditorFor(model => model.Email)
-
-    @Html.LabelFor(model => model.Phone)
-    @Html.EditorFor(model => model.Phone)
-
-    @Html.LabelFor(model => model.SalesPersonId)
-    @Html.DropDownList("SalesPersonId") 
-
-    <input type="submit" value="Save" class="btn btn-info" />
+    <input type="hidden" name="ClientId" value="@Model.ClientId" />
+    <div>
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name)
+    </div>
+    
+    <div>
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email)
+    </div>
+   
+    <div>
+        @Html.LabelFor(model => model.Phone)
+        @Html.EditorFor(model => model.Phone)
+    </div>
+    
+    <input type="submit" value="Save" class="btn btn-warning" />
 }
+
+@Html.ActionLink("NEVERMIND", "Index")

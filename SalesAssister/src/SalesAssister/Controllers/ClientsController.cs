@@ -63,7 +63,26 @@ namespace SalesAssister.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult Edit(int id)
+        {
+            var thisProject = _db.Clients.FirstOrDefault(q => q.ClientId == id);
+            return View(thisProject);
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Edit(Client Client)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+
+            Client.User = currentUser;
+
+            _db.Entry(Client).State = EntityState.Modified;
+
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Clients");
+
+        }
         //public IActionResult Index(int id)
         //{
         //    var clients = _db.Clients.Where(x => x.SalesPersonId == id).Include(x => x.salesperson).ToList();
