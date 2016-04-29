@@ -24,6 +24,11 @@ namespace SalesAssister.Controllers
             _env = env;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         //public IActionResult Index(int id)
         //{
         //    var clients = _db.Clients.Where(x => x.SalesPersonId == id).Include(x => x.salesperson).ToList();
@@ -52,7 +57,7 @@ namespace SalesAssister.Controllers
         //    db.SaveChanges();
         //    return RedirectToAction("Index", "SalesPersons");
         //}
-        
+
         //public IActionResult Edit(int id)
         //{
         //    var thisClient = db.Clients.FirstOrDefault(clients => clients.ClientId == id);

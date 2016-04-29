@@ -11,6 +11,7 @@
 @if (User.IsSignedIn())
 {
     <p>Hello @User.GetUserName()</p>
+    <p>@Html.ActionLink("CLIENTS", "Index", "Clients")</p>
 }
 else
 {

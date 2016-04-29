@@ -3,9 +3,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IList<SalesAssister.Models.Client>
+@using System.Security.Claims
 
-<h3 class="salesPeople">@Html.DisplayFor(x => x[0].salesperson.Name)'s Clients</h3>
+@model IEnumerable<SalesAssister.Models.Client>
+
+<h3 class="salesPeople">@User.GetUserName()'s Clients </h3>
 
 <br>
 
@@ -21,7 +23,7 @@
             <p>PHONE</p>
         </th>
     </tr>
-  @foreach (var client in Model)
+  @*@foreach (var client in Model)
   {
       <tr>
           <td>@Html.DisplayFor(x => client.Name)</td>
@@ -31,7 +33,7 @@
               @Html.ActionLink("EDIT", "Edit", new { id = client.ClientId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ClientId }) | @Html.ActionLink("CONTACTS", "Index", "Contacts", new { id = client.ClientId })
           </td>
       </tr>
-   }
+   }*@
 </table>
 
 
