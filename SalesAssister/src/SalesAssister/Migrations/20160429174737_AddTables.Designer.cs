@@ -8,9 +8,10 @@ using SalesAssister.Models;
 namespace SalesAssister.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20160429174737_AddTables")]
+    partial class AddTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.0-rc1-16348")
@@ -170,8 +171,6 @@ namespace SalesAssister.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("ClientId");
-
-                    b.Property<DateTime>("Date");
 
                     b.Property<string>("Notes");
 

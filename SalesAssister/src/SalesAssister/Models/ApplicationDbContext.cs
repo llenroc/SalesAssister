@@ -16,6 +16,6 @@ namespace SalesAssister.Models
 
         public DbSet<Client> Clients { get; set; }
         public DbSet<Contact> Contacts { get; set; }
-        public DbSet<SalesPerson> SalesPersons { get; set; }
+       //public DbSet<SalesPerson> SalesPersons { get; set; }
     }
 }
