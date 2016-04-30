@@ -7,20 +7,24 @@
 
 @model SalesAssister.Models.Client
 
+<p>@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</p>
+
 <h2 class="salesPeople">Notes for @Model.Name</h2>
 
 @if (ViewBag.Contacts != null)
 {
-    @foreach(var x in ViewBag.Contacts)
+    @foreach (var x in ViewBag.Contacts)
     {
-        <p>@x.Notes</p>
-        <p>@x.Date</p>
+        <h4>@x.Date.ToString("MM/dd/yyyy")</h4>
+        <p>@Html.ActionLink("DELETE", "Delete", new { id = @x.ContactId }) | @Html.ActionLink("EDIT", "Edit", new { id = @x.ContactId })</p>
+        <ul>
+            <li>@Html.Raw(@x.Notes.Replace("\n", "<br />"))</li>
+        </ul>
     }
-
 }
-else
+else if (ViewBag.Count == 0)
 {
-    <p>No notes for client</p>
+    <p>test</p>
 }
 
 @using (Html.BeginForm("addNotes", "Contacts"))
@@ -30,7 +34,7 @@ else
     <input type="hidden" name="ClientId" value="@Model.ClientId" />
 
     <div>Meeting Notes</div>
-    <textarea type="text" name="Notes" value="@ViewBag.Notes"></textarea>
+    <textarea class="textBox" type="text" name="Notes" value="@ViewBag.Notes"></textarea>
 
     <div>Date</div>
     <input type="date" name="Date" value="@ViewBag.Date"/>
