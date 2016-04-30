@@ -15,8 +15,13 @@
 {
     @foreach (var x in ViewBag.Contacts)
     {
+        <hr />
         <h4>@x.Date.ToString("MM/dd/yyyy")</h4>
-        <p>@Html.ActionLink("DELETE", "Delete", new { id = @x.ContactId }) | @Html.ActionLink("EDIT", "Edit", new { id = @x.ContactId })</p>
+        <p>@Html.ActionLink("EDIT", "Edit", new { id = @x.ContactId })</p>
+        @*@using (Html.BeginForm("DeleteThis", "Contacts"))
+        {
+            <input type="submit" value="DELETE" class="btn btn-xs" />
+        }*@
         <ul>
             <li>@Html.Raw(@x.Notes.Replace("\n", "<br />"))</li>
         </ul>

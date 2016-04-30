@@ -59,24 +59,60 @@ namespace SalesAssister.Controllers
             return View(thisProject);
         }
 
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public async Task<IActionResult> DeleteThis(int id)
         {
             var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == id);
 
             _db.Contacts.Remove(thisProject);
 
             _db.SaveChanges();
-            
-            return RedirectToAction("Index", "Clients");
+
+
+            return View();
         }
 
-        public IActionResult DeletePage(int id)
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(Contact Contact)
         {
-            var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
+            var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == Contact.ContactId);
+
+            _db.Contacts.Remove(thisProject);
+
+            _db.SaveChanges();
+
+            
+            return RedirectToAction("Index", "Conacts", new { id = Contact.ContactId });
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var thisProject = _db.Contacts.FirstOrDefault(q => q.ContactId == id);
 
             return View(thisProject);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(Contact Contact)
+        {
+            var currentUser = await _userManager.FindByIdAsync(User.GetUserId());
+
+            Contact.User = currentUser;
+
+            _db.Entry(Contact).State = EntityState.Modified;
+
+            _db.SaveChanges();
+
+            return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
+
+        }
+
+        //public IActionResult DeletePage(int id)
+        //{
+        //    var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
+
+        //    return View(thisProject);
+        //}
         //Crud stuff
         //public IActionResult Create()
         //{
