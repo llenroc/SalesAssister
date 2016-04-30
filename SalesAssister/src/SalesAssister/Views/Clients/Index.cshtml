@@ -30,7 +30,7 @@
           <td>@Html.DisplayFor(x => client.Email)</td>
           <td>@Html.DisplayFor(x => client.Phone)</td>
           <td>
-              @Html.ActionLink("EDIT", "Edit", new { id = client.ClientId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ClientId }) | @Html.ActionLink("DETAILS", "Index", "Contacts", new { id = client.ClientId })
+              @Html.ActionLink("EDIT", "Edit", new { id = client.ClientId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ClientId }) | @Html.ActionLink("CONTACTS", "Index", "Contacts", new { id = client.ClientId })
           </td>
       </tr>
    }

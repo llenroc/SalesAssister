@@ -52,6 +52,31 @@ namespace SalesAssister.Controllers
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
         }
 
+        public IActionResult Delete(int id)
+        {
+            var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
+
+            return View(thisProject);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == id);
+
+            _db.Contacts.Remove(thisProject);
+
+            _db.SaveChanges();
+            
+            return RedirectToAction("Index", "Clients");
+        }
+
+        public IActionResult DeletePage(int id)
+        {
+            var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
+
+            return View(thisProject);
+        }
         //Crud stuff
         //public IActionResult Create()
         //{
