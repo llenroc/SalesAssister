@@ -9,12 +9,13 @@
     <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
 </head>
 @using System.Security.Claims
+@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 
 <body>
     <nav class="navbar navbar-default">
         <div >
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("HOME", "Index", "Account")</li>    
+                <li>@Html.ActionLink("HOME", "Index", "Account")</li>   
             </ul>
            
             @if (User.IsSignedIn())
@@ -23,6 +24,13 @@
                 {
                     <input type="submit" id="logout" class="btn btn-default" value="Log out" />
                 }
+                @if (User.IsInRole("Admin"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("USER ROLES", "Create", "Roles")</li>
+                    </ul>
+                }
+
             }
             else
             {

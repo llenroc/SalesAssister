@@ -9,9 +9,11 @@ using SalesAssister.Models;
 using Microsoft.AspNet.Mvc.Rendering;
 using Microsoft.AspNet.Hosting;
 using System.Security.Claims;
+using Microsoft.AspNet.Authorization;
 
 namespace SalesAssister.Controllers
 {
+    [Authorize]
     public class ClientsController : Controller
     {
         private readonly ApplicationDbContext _db;
