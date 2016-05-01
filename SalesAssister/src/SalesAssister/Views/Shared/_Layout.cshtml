@@ -9,12 +9,13 @@
     <link rel="stylesheet" type="text/css" href="~/css/StyleSheet.css" />
 </head>
 @using System.Security.Claims
+@*@model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>*@
 
 <body>
     <nav class="navbar navbar-default">
         <div >
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("HOME", "Index", "Account")</li>    
+                <li>@Html.ActionLink("HOME", "Index", "Account")</li>   
             </ul>
            
             @if (User.IsSignedIn())
