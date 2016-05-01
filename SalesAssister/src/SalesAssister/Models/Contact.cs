@@ -13,9 +13,11 @@ namespace SalesAssister.Models
         [Key]
         public int ContactId { get; set; }
         public string Notes { get; set; }
-        public int SalesPersonId { get; set; }
-        public virtual SalesPerson salesperson { get; set; }
+        public DateTime Date { get; set; }
+        //public int SalesPersonId { get; set; }
+        //public virtual SalesPerson salesperson { get; set; }
         public int ClientId { get; set; }
         public virtual Client client { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

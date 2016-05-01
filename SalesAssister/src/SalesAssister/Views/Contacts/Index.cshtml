@@ -3,13 +3,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IList<SalesAssister.Models.Contact>
+@using System.Security.Claims
 
-<h3 class="salesPeople">Notes for @Html.DisplayFor(x => x[0].client.Name)</h3>
+@model SalesAssister.Models.Client
 
-@foreach(var client in Model)
+<p>@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</p>
+
+<h2 class="salesPeople">Notes for @Model.Name</h2>
+
+@if (ViewBag.Contacts != null)
 {
-    <p>- @Html.DisplayFor(x => client.Notes) -- @Html.ActionLink("EDIT", "Edit", new { id = client.ContactId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ContactId })</p>
+    @foreach (var x in ViewBag.Contacts)
+    {
+        <hr />
+        <h4>@x.Date.ToString("MM/dd/yyyy")</h4>
+        <p>@Html.ActionLink("EDIT", "Edit", new { id = @x.ContactId })</p>
+        @*@using (Html.BeginForm("DeleteThis", "Contacts"))
+        {
+            <input type="submit" value="DELETE" class="btn btn-xs" />
+        }*@
+        <ul>
+            <li>@Html.Raw(@x.Notes.Replace("\n", "<br />"))</li>
+        </ul>
+    }
+}
+else if (ViewBag.Count == 0)
+{
+    <p>test</p>
 }
 
-@Html.ActionLink("ADD NOTES", "Create", "Contacts", null, new { @class = "btn btn-info" })
+@using (Html.BeginForm("addNotes", "Contacts"))
+{
+    <h3>Add Contact Notes</h3>
+
+    <input type="hidden" name="ClientId" value="@Model.ClientId" />
+
+    <div>Meeting Notes</div>
+    <textarea class="textBox" type="text" name="Notes" value="@ViewBag.Notes"></textarea>
+
+    <div>Date</div>
+    <input type="date" name="Date" value="@ViewBag.Date"/>
+
+    <br />
+    <br />
+    <div>
+        <input type="submit" value="Save" class="btn btn-warning" />
+    </div>
+}

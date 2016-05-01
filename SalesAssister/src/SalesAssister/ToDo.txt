@@ -1,0 +1,9 @@
+﻿ToDo for this weekend. Friday 04/29:
+
+1) Finish edit and delete for contact notes.
+
+2) Add simple test for each model
+
+3) Add user roles. Copy and paste from stack overflow project.
+
+4) Add updated SQL file for SalesAssiter2 and test it.

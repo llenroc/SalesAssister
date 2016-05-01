@@ -3,22 +3,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model IList<SalesAssister.Models.Client>
+@using System.Security.Claims
 
-<h3 class="salesPeople">@Html.DisplayFor(x => x[0].salesperson.Name)'s Clients</h3>
+@model IEnumerable<SalesAssister.Models.Client>
+
+<h3 class="salesPeople">@User.GetUserName()'s Clients </h3>
 
 <br>
 
 <table class="table">
     <tr>
         <th>
-            <p>NAME</p>
+            <p class="glyphicon glyphicon-user"> NAME</p>
         </th>
         <th>
-            <p>EMAIL</p>
+            <p class="glyphicon glyphicon-flag"> EMAIL</p>
         </th>
         <th>
-            <p>PHONE</p>
+            <p class="glyphicon glyphicon-phone-alt"> PHONE</p>
         </th>
     </tr>
   @foreach (var client in Model)
@@ -34,7 +36,32 @@
    }
 </table>
 
+<h3>Add Client</h3>
+@using (Html.BeginForm("newClient", "Clients"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
+    <div>Client Name</div>
+    <p>
+        @Html.TextBox("Name")
+    </p>
 
+    <div>Client Email</div>
+    <p>
+        @Html.TextBox("Email")
+    </p>
+
+    <div>Client Phone</div>
+    <p>
+        @Html.TextBox("Phone")
+    </p>
+
+    <input type="submit" value="ADD" class="btn btn-warning" />
+}
+
+<div>
+    @Html.ActionLink("BACK", "Index", "Account")
+</div>
 
     

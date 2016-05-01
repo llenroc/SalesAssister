@@ -7,18 +7,19 @@
 
 <h3 class="salesPeople">EDIT</h3>
 
-@using (Html.BeginForm())
+<h3>Original Notes</h3>
+<p>@Html.Raw(Model.Notes.Replace("\n", "<br />"))</p>
+
+@using (Html.BeginForm("Edit", "Contacts"))
 {
-    @Html.HiddenFor(model => model.ContactId)
+    <input type="hidden" name="ClientId" value="@Model.ClientId" />
 
-    @Html.LabelFor(model => model.Notes)
-    @Html.TextAreaFor(model => model.Notes)
+    <input type="hidden" name="ContactId" value="@Model.ContactId" />
 
-    @Html.LabelFor(model => model.SalesPersonId, "Sales Person")
-    @Html.DropDownList("SalesPersonId")
+    <textarea class="textBox" type="text" name="Notes" value="@Model.Notes"></textarea>
 
-    @Html.LabelFor(model => model.ClientId, "For Client")
-    @Html.DropDownList("ClientId")
+    <div>Date</div>
+    <input type="date" name="Date" value="@Model.Date" />
 
-    <input type="submit" value="Save" class="btn btn-info" />
+    <input type="submit" value="Save" class="btn btn-warning" />
 }

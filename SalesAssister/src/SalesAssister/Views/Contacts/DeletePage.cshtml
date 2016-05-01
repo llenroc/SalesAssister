@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model SalesAssister.Models.Contact
+
+<h1 class="salesPeople">DONE</h1>
+
+@Html.ActionLink("BACK TO LIST", "Index", new { id = Model.ClientId })

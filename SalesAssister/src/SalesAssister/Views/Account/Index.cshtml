@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Sales Assister";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+
+<h2 class="salesPeople">Sales Assister Login</h2>
+<hr />
+
+@if (User.IsSignedIn())
+{
+    <p>Hello @User.GetUserName()</p>
+    <p>@Html.ActionLink("CLIENTS", "Index", "Clients")</p>
+}
+else
+{
+    <p>@Html.ActionLink("Register", "Register")</p>
+}
