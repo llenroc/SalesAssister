@@ -52,38 +52,41 @@ namespace SalesAssister.Controllers
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
         }
 
-        public IActionResult Delete(int id)
-        {
-            var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
+        //Not using this right now
+        //public IActionResult Delete(int id)
+        //{
+        //    var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
 
-            return View(thisProject);
-        }
+        //    return View(thisProject);
+        //}
 
-        [HttpPost]
-        public async Task<IActionResult> DeleteThis(int id)
-        {
-            var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == id);
+        //Not using this right now
+        //[HttpPost]
+        //public IActionResult DeleteThis(string Notes)
+        //{
+        //    var thisProject = _db.Contacts
+        //        .Where(q => q.Notes.Equals(Notes, StringComparison.CurrentCultureIgnoreCase))
+        //        .FirstOrDefault();
 
-            _db.Contacts.Remove(thisProject);
+        //    _db.Contacts.Remove(thisProject);
 
-            _db.SaveChanges();
+        //    _db.SaveChanges();
 
+        //    return RedirectToAction("Index");
+        //}
 
-            return View();
-        }
+        //Not using this right now
+        //[HttpPost, ActionName("Delete")]
+        //public async Task<IActionResult> DeleteConfirmed(Contact Contact)
+        //{
+        //    var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == Contact.ContactId);
 
-        [HttpPost, ActionName("Delete")]
-        public async Task<IActionResult> DeleteConfirmed(Contact Contact)
-        {
-            var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == Contact.ContactId);
+        //    _db.Contacts.Remove(thisProject);
 
-            _db.Contacts.Remove(thisProject);
-
-            _db.SaveChanges();
-
-            
-            return RedirectToAction("Index", "Conacts", new { id = Contact.ContactId });
-        }
+        //    _db.SaveChanges();
+      
+        //    return RedirectToAction("Index", "Conacts", new { id = Contact.ContactId });
+        //}
 
         public IActionResult Edit(int id)
         {

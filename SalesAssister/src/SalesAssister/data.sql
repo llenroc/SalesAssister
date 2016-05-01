@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [SalesAssiter2]    Script Date: 4/30/16 4:53:58 PM ******/
+/****** Object:  Database [SalesAssiter2]    Script Date: 5/1/16 11:48:37 AM ******/
 CREATE DATABASE [SalesAssiter2]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -75,7 +75,7 @@ ALTER DATABASE [SalesAssiter2] SET DELAYED_DURABILITY = DISABLED
 GO
 USE [SalesAssiter2]
 GO
-/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 4/30/16 4:53:58 PM ******/
+/****** Object:  Table [dbo].[__EFMigrationsHistory]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -90,7 +90,7 @@ CREATE TABLE [dbo].[__EFMigrationsHistory](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[AspNetRoleClaims]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -107,7 +107,7 @@ CREATE TABLE [dbo].[AspNetRoleClaims](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[AspNetRoles]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -124,7 +124,7 @@ CREATE TABLE [dbo].[AspNetRoles](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserClaims]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -141,7 +141,7 @@ CREATE TABLE [dbo].[AspNetUserClaims](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserLogins]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -159,7 +159,7 @@ CREATE TABLE [dbo].[AspNetUserLogins](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUserRoles]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -175,7 +175,7 @@ CREATE TABLE [dbo].[AspNetUserRoles](
 ) ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[AspNetUsers]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -203,7 +203,7 @@ CREATE TABLE [dbo].[AspNetUsers](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Clients]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[Clients]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -221,7 +221,7 @@ CREATE TABLE [dbo].[Clients](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[Contacts]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Table [dbo].[Contacts]    Script Date: 5/1/16 11:48:37 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -242,14 +242,27 @@ GO
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20160429162306_Initial', N'7.0.0-rc1-16348')
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20160429174737_AddTables', N'7.0.0-rc1-16348')
 INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20160429175320_AddTables1', N'7.0.0-rc1-16348')
-INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'38a24eeb-9275-46bc-94c6-bd0a138873fd', 0, N'5ba1a9fa-bfc1-4f45-9c5e-29132fea76c3', NULL, 0, 1, NULL, NULL, N'ALVIN', N'AQAAAAEAACcQAAAAEEkFnkxglVIAi3KIShmV5EYcUDSvPXRZAU/tM1RkoOgkeGk98UM0WS1RwLwqCVlHeA==', NULL, 0, N'9e2898a5-c4e3-45c1-ba1e-592d06a6ce22', 0, N'Alvin')
-INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'efe4502f-a040-4cda-a366-3d03cfede039', 0, N'7e4e20c8-9615-4f29-8f15-3b358c836c39', NULL, 0, 1, NULL, NULL, N'MICHAEL', N'AQAAAAEAACcQAAAAEInSZSsFXg6Ee5+AlBNKiiKmkpCDk0EyMrfFWEAwQfoyQfb6pyjT+0yDECEruXOC1A==', NULL, 0, N'f1927a59-17ce-4075-8740-018e7ba053df', 0, N'michael')
+INSERT [dbo].[__EFMigrationsHistory] ([MigrationId], [ProductVersion]) VALUES (N'20160501180025_A', N'7.0.0-rc1-16348')
+INSERT [dbo].[AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName]) VALUES (N'085033a4-7884-4d67-82ad-77433cb9fe36', N'7fed343f-8e6b-429f-ae95-de6c91094e4f', N'Admin', NULL)
+INSERT [dbo].[AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName]) VALUES (N'991a1db0-3958-447f-90de-e853f08063d5', N'6776bfb8-d0e0-432e-996b-22c11673e42e', N'Gaurd', NULL)
+INSERT [dbo].[AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName]) VALUES (N'9dda8df1-afb1-4eb1-b610-c4607f2f6017', N'c068cdd0-515b-46d9-ae75-8a15e144a665', N'Chef', NULL)
+INSERT [dbo].[AspNetRoles] ([Id], [ConcurrencyStamp], [Name], [NormalizedName]) VALUES (N'eaf7a9e6-faaf-48b4-8a62-37659bdbc953', N'2bec284c-9018-4fb9-a310-f76f57ae07e8', N'Farmer', NULL)
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'38a24eeb-9275-46bc-94c6-bd0a138873fd', N'085033a4-7884-4d67-82ad-77433cb9fe36')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'38a24eeb-9275-46bc-94c6-bd0a138873fd', N'eaf7a9e6-faaf-48b4-8a62-37659bdbc953')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'daae6196-122f-4440-ab30-f27d8fcccfa1', N'085033a4-7884-4d67-82ad-77433cb9fe36')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'e5703d67-135a-4b48-a4ed-f7c901e4d049', N'085033a4-7884-4d67-82ad-77433cb9fe36')
+INSERT [dbo].[AspNetUserRoles] ([UserId], [RoleId]) VALUES (N'efe4502f-a040-4cda-a366-3d03cfede039', N'9dda8df1-afb1-4eb1-b610-c4607f2f6017')
+INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'38a24eeb-9275-46bc-94c6-bd0a138873fd', 0, N'fe92332b-8516-4d7c-b8b9-dcd691f395ee', NULL, 0, 1, NULL, NULL, N'ALVIN', N'AQAAAAEAACcQAAAAEEkFnkxglVIAi3KIShmV5EYcUDSvPXRZAU/tM1RkoOgkeGk98UM0WS1RwLwqCVlHeA==', NULL, 0, N'9e2898a5-c4e3-45c1-ba1e-592d06a6ce22', 0, N'Alvin')
+INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'9a648497-9f11-4bad-a977-3f6aa2af8684', 0, N'ee2851b7-c3dd-4b7a-8980-7df6c71320d5', NULL, 0, 1, NULL, NULL, N'BOB', N'AQAAAAEAACcQAAAAEEWIC6AyQpCfdYmqQpVMqRZRFvBjlc4k0dy9IDTMS01cen8RpcgjSAcHcY9IJYzljg==', NULL, 0, N'44d63ea6-8491-4723-aac2-e292bdcd72e3', 0, N'bob')
+INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'daae6196-122f-4440-ab30-f27d8fcccfa1', 0, N'f104f4bc-ff3b-42e5-b6ca-280f320d297c', NULL, 0, 1, NULL, NULL, N'SAMANTHA', N'AQAAAAEAACcQAAAAEPLT77zbuh4wbLSJQT+uHuuboBEeRUTlLT7L31tdvdMPJ7UsZYPA5Wm4xQU0z5RFJA==', NULL, 0, N'0ae7d552-c060-49a1-b8a2-f030eef130c2', 0, N'Samantha')
+INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'e5703d67-135a-4b48-a4ed-f7c901e4d049', 0, N'235ac4cd-134f-476a-8e55-644a4dbc0cab', NULL, 0, 1, NULL, NULL, N'THEADMIN', N'AQAAAAEAACcQAAAAENDHbAKwj/jHfgMukDVfZuh37In+2bsV088n1EuCDBG/JpP5y38zd/LNscHfFRJHXw==', NULL, 0, N'dd44f226-e9bf-4a9a-a08a-a2a2a9e2317f', 0, N'TheAdmin')
+INSERT [dbo].[AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName]) VALUES (N'efe4502f-a040-4cda-a366-3d03cfede039', 0, N'308e3615-b034-4a61-9373-bf5a741e3984', NULL, 0, 1, NULL, NULL, N'MICHAEL', N'AQAAAAEAACcQAAAAEInSZSsFXg6Ee5+AlBNKiiKmkpCDk0EyMrfFWEAwQfoyQfb6pyjT+0yDECEruXOC1A==', NULL, 0, N'f1927a59-17ce-4075-8740-018e7ba053df', 0, N'michael')
 SET IDENTITY_INSERT [dbo].[Clients] ON 
 
 INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (1, N'drake@the6.com', N'Drake', N'1-800-hotlinebling', N'efe4502f-a040-4cda-a366-3d03cfede039')
 INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (2, N'michael@jordan.com', N'Michael Jordan', N'333-888-9000', N'efe4502f-a040-4cda-a366-3d03cfede039')
 INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (3, N'wayne@cashmoney.com', N'Lil Wayne', N'$$$-$$$-$$$$', N'efe4502f-a040-4cda-a366-3d03cfede039')
-INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (4, N'sarah@sellyourhouse.com', N'Sarah Sales', N'444-444-4444', N'38a24eeb-9275-46bc-94c6-bd0a138873fd')
+INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (4, N'sarah@sellyourhouse.com', N'Sarah Sales!', N'444-444-4444', N'38a24eeb-9275-46bc-94c6-bd0a138873fd')
 INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (6, N'zayne@popstar.com', N'Zayne Malik', N'333-044-0000', N'efe4502f-a040-4cda-a366-3d03cfede039')
 INSERT [dbo].[Clients] ([ClientId], [Email], [Name], [Phone], [UserId]) VALUES (7, N'frank@Fourfingers.com', N'Frank Ocean', N'223-the-pyramid', N'38a24eeb-9275-46bc-94c6-bd0a138873fd')
 SET IDENTITY_INSERT [dbo].[Clients] OFF
@@ -268,20 +281,24 @@ INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [UserId], [Date]) VAL
 Aliquam efficitur orci id orci egestas interdum in non ex. Phasellus et blandit lectus. Curabitur interdum suscipit maximus. Sed maximus erat eget odio dignissim sollicitudin. 
 
 Aliquam efficitur orci id orci egestas interdum in non ex. Phasellus et blandit lectus. Curabitur interdum suscipit maximus. Sed maximus erat eget odio dignissim sollicitudin. ', N'38a24eeb-9275-46bc-94c6-bd0a138873fd', CAST(N'2016-05-07T00:00:00.0000000' AS DateTime2))
-INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [UserId], [Date]) VALUES (9, 4, N'one
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [UserId], [Date]) VALUES (9, 4, N'one 
 
-two
+two 
 
-three
+three 
 
-four', N'38a24eeb-9275-46bc-94c6-bd0a138873fd', CAST(N'2016-04-27T00:00:00.0000000' AS DateTime2))
+four
+
+five', N'38a24eeb-9275-46bc-94c6-bd0a138873fd', CAST(N'2016-06-04T00:00:00.0000000' AS DateTime2))
 INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [UserId], [Date]) VALUES (9012, 7, N'eidited again', N'38a24eeb-9275-46bc-94c6-bd0a138873fd', CAST(N'2016-04-30T00:00:00.0000000' AS DateTime2))
-INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [UserId], [Date]) VALUES (11011, 7, N'llkjllllkl', N'38a24eeb-9275-46bc-94c6-bd0a138873fd', CAST(N'2016-04-14T00:00:00.0000000' AS DateTime2))
+INSERT [dbo].[Contacts] ([ContactId], [ClientId], [Notes], [UserId], [Date]) VALUES (11011, 7, N'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', N'38a24eeb-9275-46bc-94c6-bd0a138873fd', CAST(N'2016-05-02T00:00:00.0000000' AS DateTime2))
 SET IDENTITY_INSERT [dbo].[Contacts] OFF
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [RoleNameIndex]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Index [RoleNameIndex]    Script Date: 5/1/16 11:48:38 AM ******/
 CREATE NONCLUSTERED INDEX [RoleNameIndex] ON [dbo].[AspNetRoles]
 (
 	[NormalizedName] ASC
@@ -290,7 +307,7 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [EmailIndex]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Index [EmailIndex]    Script Date: 5/1/16 11:48:38 AM ******/
 CREATE NONCLUSTERED INDEX [EmailIndex] ON [dbo].[AspNetUsers]
 (
 	[NormalizedEmail] ASC
@@ -299,7 +316,7 @@ GO
 SET ANSI_PADDING ON
 
 GO
-/****** Object:  Index [UserNameIndex]    Script Date: 4/30/16 4:53:59 PM ******/
+/****** Object:  Index [UserNameIndex]    Script Date: 5/1/16 11:48:38 AM ******/
 CREATE NONCLUSTERED INDEX [UserNameIndex] ON [dbo].[AspNetUsers]
 (
 	[NormalizedUserName] ASC
