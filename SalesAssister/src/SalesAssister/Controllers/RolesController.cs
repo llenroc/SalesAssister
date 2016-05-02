@@ -29,7 +29,7 @@ namespace SalesAssister.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var roles = _db.Roles.ToList();
@@ -105,7 +105,7 @@ namespace SalesAssister.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public IActionResult ManageUserRoles()
         {
             var list = _db.Roles.OrderBy(r => r.Name)
@@ -119,7 +119,7 @@ namespace SalesAssister.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public IActionResult RoleAddToUser(string UserName, string RoleName)
         {
             //ApplicationUser user = _db.Users
@@ -147,7 +147,7 @@ namespace SalesAssister.Controllers
 
         }
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ApplicationUser GetUser(string UserName)
         {
             return _userManager.Users
@@ -156,7 +156,7 @@ namespace SalesAssister.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public IActionResult GetRoles(string UserName)
         {
 
