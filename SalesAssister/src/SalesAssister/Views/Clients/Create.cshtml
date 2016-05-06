@@ -1,25 +1,34 @@
 ﻿@{
     ViewData["Title"] = "Sales Assister";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model SalesAssister.Models.Client
+@*@model SalesAssister.Models.Client*@
 
-<h3 class="salesPeople">ADD NEW CLIENT</h3>
+<h3 class="salesPeople">ADD NEW CLIENT</h3> 
+<button class="btn btn-xs btn-warning" onclick="myFunction()">Hide Form</button>
 
-@using (Html.BeginForm())
+<br />
+@using (Html.BeginForm("newClient", "Clients"))
 {
-    @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name)
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
 
-    @Html.LabelFor(model => model.Phone)
-    @Html.EditorFor(model => model.Phone)
+    <div>Client Name</div>
+    <p>
+        @Html.TextBox("Name")
+    </p>
 
-    @Html.LabelFor(model => model.Email)
-    @Html.EditorFor(model => model.Email)
+    <div>Client Email</div>
+    <p>
+        @Html.TextBox("Email")
+    </p>
 
-    @Html.LabelFor(model => model.SalesPersonId, "Sales Person")
-    @Html.DropDownList("SalesPersonId")
+    <div>Client Phone</div>
+    <p>
+        @Html.TextBox("Phone")
+    </p>
 
-    <input type="submit" value="Create" class="btn btn-info" />
+    <input type="submit" value="ADD" class="btn btn-warning" />
 }
+<br />
+

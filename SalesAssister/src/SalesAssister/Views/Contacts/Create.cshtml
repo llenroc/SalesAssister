@@ -1,23 +1,24 @@
 ﻿@{
     ViewData["Title"] = "Sales Assister";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@model SalesAssister.Models.Contact
+@model SalesAssister.Models.Client
 
-<h3 class="salesPeople">ADD NOTES FOR CLIENT</h3>
-
-@using (Html.BeginForm())
+@using (Html.BeginForm("addNotes", "Contacts"))
 {
-    
-    @Html.LabelFor(model => model.Notes)
-    @Html.TextAreaFor(model => model.Notes)
+    <h3>Add Contact Notes</h3>
 
-    @Html.LabelFor(model => model.SalesPersonId, "Sales Person")
-    @Html.DropDownList("SalesPersonId")
+    <input type="hidden" name="ClientId" value="@Model.ClientId" />
 
-    @Html.LabelFor(model => model.ClientId, "For Client")
-    @Html.DropDownList("ClientId")
+    <div>Meeting Notes</div>
+    <textarea class="textBox" type="text" name="Notes" value="@ViewBag.Notes"></textarea>
 
-    <input type="submit" value="Create" class="btn btn-info" />
+    <div>Date</div>
+    <input type="date" name="Date" value="@ViewBag.Date" />
+
+    <br />
+    <br />
+    <div>
+        <input type="submit" value="Save" class="btn btn-warning" />
+    </div>
 }

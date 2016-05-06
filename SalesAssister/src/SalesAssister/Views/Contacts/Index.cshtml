@@ -9,7 +9,41 @@
 
 <p>@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</p>
 
-<h2 class="salesPeople">Notes for @Model.Name</h2>
+<h2 class="salesPeople">@Model.Name</h2>
+<button class="btn btn-xs btn-warning edit-client">Edit</button>
+<button class="btn btn-xs btn-danger delete-client">Delete</button>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.edit-client').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Edit", "Clients", new { id = Model.ClientId })',
+                success: function (result) {
+                    $('#editClient').html(result);
+                }
+            });
+        });
+
+        $('.delete-client').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Delete", "Clients", new { id = Model.ClientId })',
+                success: function (result) {
+                    $('#deleteClient').html(result);
+                }
+            });
+        });
+    }); 
+</script>
+
+<h4>Email: @Model.Email</h4>
+<h4>Phone: @Model.Phone</h4>
+
+<div id="editClient"></div>
+<div id="deleteClient"></div>
 
 @if (ViewBag.Contacts != null)
 {
@@ -28,21 +62,3 @@ else if (ViewBag.Count == 0)
     <p>test</p>
 }
 
-@using (Html.BeginForm("addNotes", "Contacts"))
-{
-    <h3>Add Contact Notes</h3>
-
-    <input type="hidden" name="ClientId" value="@Model.ClientId" />
-
-    <div>Meeting Notes</div>
-    <textarea class="textBox" type="text" name="Notes" value="@ViewBag.Notes"></textarea>
-
-    <div>Date</div>
-    <input type="date" name="Date" value="@ViewBag.Date"/>
-
-    <br />
-    <br />
-    <div>
-        <input type="submit" value="Save" class="btn btn-warning" />
-    </div>
-}

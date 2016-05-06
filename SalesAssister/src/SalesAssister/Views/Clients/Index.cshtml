@@ -30,38 +30,17 @@
           <td>@Html.DisplayFor(x => client.Email)</td>
           <td>@Html.DisplayFor(x => client.Phone)</td>
           <td>
-              @Html.ActionLink("EDIT", "Edit", new { id = client.ClientId }) | @Html.ActionLink("DELETE", "Delete", new { id = client.ClientId }) | @Html.ActionLink("CONTACTS", "Index", "Contacts", new { id = client.ClientId })
+           @Html.ActionLink("CLIENT PAGE", "Index", "Contacts", new { id = client.ClientId })
           </td>
       </tr>
    }
 </table>
 
-<h3>Add Client</h3>
-@using (Html.BeginForm("newClient", "Clients"))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<button class="btn btn-warning add-client">Add Client</button>
 
-    <div>Client Name</div>
-    <p>
-        @Html.TextBox("Name")
-    </p>
-
-    <div>Client Email</div>
-    <p>
-        @Html.TextBox("Email")
-    </p>
-
-    <div>Client Phone</div>
-    <p>
-        @Html.TextBox("Phone")
-    </p>
-
-    <input type="submit" value="ADD" class="btn btn-warning" />
-}
+<div id="clientForm"></div>
 
 <div>
     @Html.ActionLink("BACK", "Index", "Account")
 </div>
 
-    
