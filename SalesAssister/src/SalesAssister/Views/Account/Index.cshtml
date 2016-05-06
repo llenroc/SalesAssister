@@ -7,12 +7,12 @@
 
 @model IEnumerable<Microsoft.AspNet.Identity.EntityFramework.IdentityRole>
 
-<h2 class="salesPeople">Sales Assister Login</h2>
+<h1 class="salesPeople">Sales Assister</h1>
 <hr />
 
 @if (User.IsSignedIn())
 {
-    <p>Hello @User.GetUserName()</p>
+    <h3 class="salesPeople">Hello @User.GetUserName()</h3>
     <p>@Html.ActionLink("CLIENTS", "Index", "Clients")</p>
     @if (User.IsInRole("Admin"))
     {

@@ -1,15 +1,19 @@
 ﻿@{
     ViewData["Title"] = "Sales Assister";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model SalesAssister.Models.Client
 
-<h3 class="salesPeople">DELETE: @Html.DisplayFor(model => model.Name)</h3>
+<h3 class="salesPeople">DELETE: @Html.DisplayFor(model => model.Name)?</h3>
+<p>This will delete the client's information and all of their contact notes.</p>
+
+<button class="btn btn-xs btn-danger" onclick="myFunction()">Nevermind</button>
+
+<br />
+<br />
 
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" class="btn btn-warning"/>
+    <input type="submit" value="Delete" class="btn btn-danger btn-xs"/>
 }
 
-@Html.ActionLink("NEVERMIND", "Index")

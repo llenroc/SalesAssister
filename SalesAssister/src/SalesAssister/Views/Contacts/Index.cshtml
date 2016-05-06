@@ -10,7 +10,8 @@
 <p>@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</p>
 
 <h2 class="salesPeople">@Model.Name</h2>
-<button class="btn btn-xs btn-danger edit-client">Edit</button>
+<button class="btn btn-xs btn-warning edit-client">Edit</button>
+<button class="btn btn-xs btn-danger delete-client">Delete</button>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -23,7 +24,18 @@
                     $('#editClient').html(result);
                 }
             });
-        }); 
+        });
+
+        $('.delete-client').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Delete", "Clients", new { id = Model.ClientId })',
+                success: function (result) {
+                    $('#deleteClient').html(result);
+                }
+            });
+        });
     }); 
 </script>
 
@@ -31,6 +43,7 @@
 <h4>Phone: @Model.Phone</h4>
 
 <div id="editClient"></div>
+<div id="deleteClient"></div>
 
 @if (ViewBag.Contacts != null)
 {
