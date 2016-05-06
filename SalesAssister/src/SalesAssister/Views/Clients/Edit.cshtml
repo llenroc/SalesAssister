@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Sales Assister";
-   
 }
 
 @model SalesAssister.Models.Client
@@ -15,18 +14,24 @@
 
     <div class="form-group">
         
-            @Html.LabelFor(model => model.Name)
-            <div class="col-md-10">
+            <div>
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div>
                 @Html.EditorFor(model => model.Name)
             </div>
-        
-            @Html.LabelFor(model => model.Email)
-            <div class="col-md-10">
+            
+            <div>
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <div>
                 @Html.EditorFor(model => model.Email)
             </div>
         
-            @Html.LabelFor(model => model.Phone)
-            <div class="col-md-10">
+            <div>
+                @Html.LabelFor(model => model.Phone)
+            </div>
+            <div>
                 @Html.EditorFor(model => model.Phone)
             </div>
     </div>

@@ -39,6 +39,16 @@ namespace SalesAssister.Controllers
             return View(theView);
         }
 
+        public IActionResult Create(int id)
+        {
+            var thisProject = _db.Clients.FirstOrDefault(q => q.ClientId == id);
+
+            ViewBag.Contacts = _db.Contacts
+               .Where(x => x.ClientId == id);
+              
+            return View(thisProject);
+        }
+
         [HttpPost]
         public async Task<IActionResult> addNotes(Contact Contact)
         {
@@ -109,69 +119,5 @@ namespace SalesAssister.Controllers
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
 
         }
-
-        //public IActionResult DeletePage(int id)
-        //{
-        //    var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
-
-        //    return View(thisProject);
-        //}
-        //Crud stuff
-        //public IActionResult Create()
-        //{
-        //   ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
-
-        //    ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
-
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public IActionResult Create(Contact contact)
-        //{
-        //    db.Contacts.Add(contact);
-        //    db.SaveChanges();
-
-        //    return RedirectToAction("Index", "SalesPersons");
-        //}
-
-        //public IActionResult Edit(int id)
-        //{
-        //    var thisContact = db.Contacts.FirstOrDefault(contacts => contacts.ContactId == id);
-
-        //    ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
-
-        //    ViewBag.ClientId = new SelectList(db.Clients, "ClientId", "Name");
-
-        //    return View(thisContact);
-        //}
-
-        //[HttpPost]
-        //public IActionResult Edit(Contact contact)
-        //{
-        //    db.Entry(contact).State = EntityState.Modified;
-        //    db.SaveChanges();
-
-        //    return RedirectToAction("Index", "SalesPersons");
-        //}
-
-        //public IActionResult Delete(int id)
-        //{
-        //    var thisItem = db.Contacts.FirstOrDefault(contact => contact.ContactId == id);
-
-        //    return View(thisItem);
-        //}
-
-        //[HttpPost, ActionName("Delete")]
-        //public IActionResult DeleteConfirmed(int id)
-        //{
-        //    var thisItem = db.Contacts.FirstOrDefault(contact => contact.ContactId == id);
-
-        //    db.Contacts.Remove(thisItem);
-
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index", "SalesPersons");
-        //}
-
     }
 }
