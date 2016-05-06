@@ -122,23 +122,6 @@ namespace SalesAssister.Controllers
        // [Authorize(Roles = "Admin")]
         public IActionResult RoleAddToUser(string UserName, string RoleName)
         {
-            //ApplicationUser user = _db.Users
-            //    .Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase))
-            //    .FirstOrDefault();
-
-            //var account = new AccountController();
-
-            //account.UserManager.AddToRole(user.Id, RoleName);
-
-            //ViewBag.ResultMessage = "Role Created Successfully";
-
-            //var list = _db.Roles
-            //    .OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
-
-            //ViewBag.Roles = list;
-
-            //return View("ManageUserRoles");
-
             var user = GetUser(UserName);
 
             var role = _userManager.AddToRoleAsync(user, RoleName).Result;
@@ -172,13 +155,6 @@ namespace SalesAssister.Controllers
 
                 ViewBag.Roles = list;
             }
-            //var userA = GetUser(UserName);
-            //ViewBag.User = userA;
-            //ViewBag.RolesForThisUser = _userManager.GetRolesAsync(userA).Result;
-
-            //ViewBag.Users = new SelectList(_userManager.Users.ToList());
-            //ViewBag.Roles = new SelectList(_db.Roles.ToList());
-
             return View("ManageUserRoles");
         }
 
