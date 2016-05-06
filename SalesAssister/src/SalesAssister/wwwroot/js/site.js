@@ -10,13 +10,13 @@
         });
     });
 
-    $('.hide-form1').click(function () {
+    $('.add-client').click(function () {
         $.ajax({
             type: 'GET',
             dataType: 'html',
-            url: '~/../../Home/Index',
+            url: '~/../../Clients/Create',
             success: function (result) {
-                $('#homePage').html(result);
+                $('#clientForm').html(result);
             }
         });
     });

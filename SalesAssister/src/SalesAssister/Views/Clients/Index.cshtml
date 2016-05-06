@@ -36,29 +36,9 @@
    }
 </table>
 
-<h3>Add Client</h3>
-@using (Html.BeginForm("newClient", "Clients"))
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<button class="btn btn-warning add-client">Add Client</button>
 
-    <div>Client Name</div>
-    <p>
-        @Html.TextBox("Name")
-    </p>
-
-    <div>Client Email</div>
-    <p>
-        @Html.TextBox("Email")
-    </p>
-
-    <div>Client Phone</div>
-    <p>
-        @Html.TextBox("Phone")
-    </p>
-
-    <input type="submit" value="ADD" class="btn btn-warning" />
-}
+<div id="clientForm"></div>
 
 <div>
     @Html.ActionLink("BACK", "Index", "Account")

@@ -37,6 +37,11 @@ namespace SalesAssister.Controllers
             return View(theView);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> newClient(Client Client)
         {
@@ -86,83 +91,6 @@ namespace SalesAssister.Controllers
 
         }
 
-        //public async Task<IActionResult> Details(int id)
-        //{
-        //    var currenUser = await _userManager.FindByIdAsync(User.GetUserId());
-
-        //    var contactDetails = _db.Contacts
-        //        .Include(x => x.client)
-        //        .Where(x => x.ClientId == id)
-        //        .ToList();
-
-        //    //ViewBag.Client = _db.Clients
-        //    //    .Include(x => x.Name)
-        //    //    .Where(x => x.ClientId == id);
-
-
-        //    return View(contactDetails);
-        //}
-        //public IActionResult Index(int id)
-        //{
-        //    var clients = _db.Clients.Where(x => x.SalesPersonId == id).Include(x => x.salesperson).ToList();
-
-        //    if(clients.Count >= 1)
-        //    {
-        //        return View(clients);
-        //    }
-        //    else
-        //    {
-        //        return View();
-        //    } 
-        //}
-
-        //public IActionResult Create()
-        //{
-        //    ViewBag.SalesPersonId = new SelectList(_db.SalesPersons, "SalesPersonId", "Name");
-
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //public IActionResult Create(Client client)
-        //{
-        //    db.Clients.Add(client);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index", "SalesPersons");
-        //}
-
-        //public IActionResult Edit(int id)
-        //{
-        //    var thisClient = db.Clients.FirstOrDefault(clients => clients.ClientId == id);
-
-        //    ViewBag.SalesPersonId = new SelectList(db.SalesPersons, "SalesPersonId", "Name");
-
-        //    return View(thisClient);
-        //}
-
-        //[HttpPost]
-        //public IActionResult Edit(Client client)
-        //{
-        //    db.Entry(client).State = EntityState.Modified;
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index", "SalesPersons");
-        //}
-
-        //public IActionResult Delete(int id)
-        //{
-        //    var thisItem = db.Clients.FirstOrDefault(client => client.ClientId == id);
-
-        //    return View(thisItem);
-        //}
-
-        //[HttpPost, ActionName ("Delete")]
-        //public IActionResult DeleteConfirmed(int id)
-        //{
-        //    var thisItem = db.Clients.FirstOrDefault(client => client.ClientId == id);
-
-        //    db.Clients.Remove(thisItem);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index", "SalesPersons");
-        //}
+        
     }
 }
