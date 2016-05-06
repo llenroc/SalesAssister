@@ -9,7 +9,28 @@
 
 <p>@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</p>
 
-<h2 class="salesPeople">Notes for @Model.Name</h2>
+<h2 class="salesPeople">@Model.Name</h2>
+<button class="btn btn-xs btn-danger edit-client">Edit</button>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.edit-client').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Edit", "Clients", new { id = Model.ClientId })',
+                success: function (result) {
+                    $('#editClient').html(result);
+                }
+            });
+        }); 
+    }); 
+</script>
+
+<h4>Email: @Model.Email</h4>
+<h4>Phone: @Model.Phone</h4>
+
+<div id="editClient"></div>
 
 @if (ViewBag.Contacts != null)
 {

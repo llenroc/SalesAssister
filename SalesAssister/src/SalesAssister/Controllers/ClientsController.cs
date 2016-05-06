@@ -87,7 +87,7 @@ namespace SalesAssister.Controllers
 
             _db.SaveChanges();
 
-            return RedirectToAction("Index", "Clients");
+            return RedirectToAction("Index", "Contacts", new { id = Client.ClientId });
 
         }
 

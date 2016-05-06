@@ -4,8 +4,10 @@
 
 @*@model SalesAssister.Models.Client*@
 
-<h3 class="salesPeople">ADD NEW CLIENT</h3>
+<h3 class="salesPeople">ADD NEW CLIENT</h3> 
+<button class="btn btn-xs btn-warning" onclick="myFunction()">Hide Form</button>
 
+<br />
 @using (Html.BeginForm("newClient", "Clients"))
 {
     @Html.AntiForgeryToken()
@@ -28,3 +30,5 @@
 
     <input type="submit" value="ADD" class="btn btn-warning" />
 }
+<br />
+

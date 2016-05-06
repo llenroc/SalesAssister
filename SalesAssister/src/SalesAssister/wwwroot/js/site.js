@@ -20,4 +20,9 @@
             }
         });
     });
+
 });
+
+function myFunction() {
+    location.reload();
+}
