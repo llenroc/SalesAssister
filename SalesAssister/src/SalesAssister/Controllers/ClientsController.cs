@@ -73,6 +73,7 @@ namespace SalesAssister.Controllers
         public IActionResult Edit(int id)
         {
             var thisProject = _db.Clients.FirstOrDefault(q => q.ClientId == id);
+
             return View(thisProject);
         }
 

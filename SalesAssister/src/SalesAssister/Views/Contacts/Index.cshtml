@@ -36,6 +36,17 @@
                 }
             });
         });
+
+        $('.add-notes').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Create", "Contacts", new { id = Model.ClientId })',
+                success: function (result) {
+                    $('#addNotes').html(result);
+                }
+            });
+        });
     }); 
 </script>
 
@@ -61,4 +72,7 @@ else if (ViewBag.Count == 0)
 {
     <p>test</p>
 }
-
+<br />
+<br />
+<button class="btn btn-success add-notes">Add Notes</button>
+<div id="addNotes"></div>
