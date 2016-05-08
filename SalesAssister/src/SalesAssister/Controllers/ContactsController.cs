@@ -58,9 +58,12 @@ namespace SalesAssister.Controllers
 
             Contact.User = currentUser;
 
-            _db.Contacts.Add(Contact);
-            _db.SaveChanges();
-
+            if(Contact.Notes != null)
+            {
+                _db.Contacts.Add(Contact);
+                _db.SaveChanges();
+            }
+           
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
         }
 
@@ -105,10 +108,12 @@ namespace SalesAssister.Controllers
 
             Contact.User = currentUser;
 
-            _db.Entry(Contact).State = EntityState.Modified;
-
-            _db.SaveChanges();
-
+            if(Contact.Notes != null)
+            {
+                _db.Entry(Contact).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+           
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
 
         }

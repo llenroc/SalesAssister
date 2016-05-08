@@ -10,6 +10,9 @@
 
 @using (Html.BeginForm("addNotes", "Contacts"))
 {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
     <input type="hidden" name="ClientId" value="@Model.ClientId" />
 
     <div>Meeting Notes</div>
