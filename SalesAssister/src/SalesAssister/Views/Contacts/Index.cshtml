@@ -7,7 +7,7 @@
 
 @model SalesAssister.Models.Client
 
-<p>@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</p>
+<h5 class="salesPeople">@Html.ActionLink("BACK TO CLIENT LIST", "Index", "Clients")</h5>
 
 <h2 class="salesPeople">@Model.Name</h2>
 <button class="btn btn-xs btn-warning edit-client">Edit</button>
@@ -62,7 +62,8 @@
     {
         <hr />
         <h4>@x.Date.ToString("MM/dd/yyyy")</h4>
-        <p ><strong class="edit-contact">EDIT</strong></p>
+        <button class="btn btn-xs edit-contact">EDIT</button>
+        <button class="btn btn-xs delete-contact">DELETE</button>
         <script type="text/javascript">
             $(document).ready(function () {
                 $('.edit-contact').click(function () {
@@ -72,6 +73,17 @@
                         url: '@Url.Action("Edit", "Contacts", new { id = @x.ContactId })',
                         success: function (result) {
                             $('#editNotes').html(result);
+                        }
+                    });
+                });
+
+                $('.delete-contact').click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        dataType: 'html',
+                        url: '@Url.Action("Delete", "Contacts", new { id = @x.ContactId })',
+                        success: function (result) {
+                            $('#deleteNotes').html(result);
                         }
                     });
                 });
@@ -87,6 +99,7 @@ else if (ViewBag.Count == 0)
     <p>test</p>
 }
 <div id="editNotes"></div>
+<div id="deleteNotes"></div>
 <br />
 <br />
 <button class="btn btn-success add-notes">Add Notes</button>
