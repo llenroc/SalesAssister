@@ -34,6 +34,7 @@ namespace SalesAssister.Controllers
 
             ViewBag.Contacts = _db.Contacts
                 .Where(x => x.ClientId == id)
+                .OrderByDescending(x => x.Date)
                 .ToList();
 
             return View(theView);
@@ -45,6 +46,7 @@ namespace SalesAssister.Controllers
 
             ViewBag.Contacts = _db.Contacts
                .Where(x => x.ClientId == id);
+               
               
             return View(thisProject);
         }
@@ -56,47 +58,41 @@ namespace SalesAssister.Controllers
 
             Contact.User = currentUser;
 
-            _db.Contacts.Add(Contact);
-            _db.SaveChanges();
-
+            if(Contact.Notes != null)
+            {
+                _db.Contacts.Add(Contact);
+                _db.SaveChanges();
+            }
+           
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
         }
 
-        //Not using this right now
-        //public IActionResult Delete(int id)
-        //{
-        //    var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
+        public IActionResult Delete(int id)
+        {
+            var thisProject = _db.Contacts.FirstOrDefault(x => x.ContactId == id);
 
-        //    return View(thisProject);
-        //}
+            return View(thisProject);
+        }
 
-        //Not using this right now
-        //[HttpPost]
-        //public IActionResult DeleteThis(string Notes)
-        //{
-        //    var thisProject = _db.Contacts
-        //        .Where(q => q.Notes.Equals(Notes, StringComparison.CurrentCultureIgnoreCase))
-        //        .FirstOrDefault();
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == id);
 
-        //    _db.Contacts.Remove(thisProject);
+            _db.Contacts.Remove(thisProject);
 
-        //    _db.SaveChanges();
+            _db.SaveChanges();
 
-        //    return RedirectToAction("Index");
-        //}
+            //ViewBag.Client = _db.Clients
+            //    .FirstOrDefault(x => x.ClientId == id);
 
-        //Not using this right now
-        //[HttpPost, ActionName("Delete")]
-        //public async Task<IActionResult> DeleteConfirmed(Contact Contact)
-        //{
-        //    var thisProject = await _db.Contacts.FirstOrDefaultAsync(q => q.ContactId == Contact.ContactId);
+            return RedirectToAction("Index", "Clients");
+        }
 
-        //    _db.Contacts.Remove(thisProject);
-
-        //    _db.SaveChanges();
-      
-        //    return RedirectToAction("Index", "Conacts", new { id = Contact.ContactId });
-        //}
+        public IActionResult DeletePage()
+        {
+            return View();
+        }
 
         public IActionResult Edit(int id)
         {
@@ -112,10 +108,12 @@ namespace SalesAssister.Controllers
 
             Contact.User = currentUser;
 
-            _db.Entry(Contact).State = EntityState.Modified;
-
-            _db.SaveChanges();
-
+            if(Contact.Notes != null)
+            {
+                _db.Entry(Contact).State = EntityState.Modified;
+                _db.SaveChanges();
+            }
+           
             return RedirectToAction("Index", "Contacts", new { id = Contact.ClientId });
 
         }

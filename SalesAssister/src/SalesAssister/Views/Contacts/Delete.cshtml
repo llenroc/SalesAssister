@@ -1,15 +1,18 @@
 ﻿@{
     ViewData["Title"] = "Sales Assister";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model SalesAssister.Models.Contact
 
 <h3 class="salesPeople">Delete this contact?</h3>
 
+<button class="btn btn-xs btn-danger" onclick="myFunction()">Nevermind</button>
+
+
+<p>@Model.Notes</p>
+
 @using (Html.BeginForm())
 {
-    <input type="submit" value="Delete" class="btn btn-warning"/>
+    <input type="submit" value="Delete" class="btn btn-danger btn-xs"/>
 }
 
-@Html.ActionLink("NEVERMIND", "Index", new { id = Model.ClientId })
