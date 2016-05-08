@@ -11,8 +11,9 @@
 
 @if (User.IsSignedIn())
 {
-    <p>Hello @User.GetUserName()</p>
-    <p>@Html.ActionLink("CLIENTS", "Index", "Clients")</p>
+    <h2>Hello @User.GetUserName()</h2>
+    <br />
+    <h4 class="salesPeople">@Html.ActionLink("CLIENTS", "Index", "Clients")</h4>
     @if (User.IsInRole("Admin"))
     {
 

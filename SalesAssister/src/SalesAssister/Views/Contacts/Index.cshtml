@@ -36,7 +36,18 @@
                 }
             });
         });
-    }); 
+
+        $('.add-notes').click(function () {
+            $.ajax({
+                type: 'GET',
+                dataType: 'html',
+                url: '@Url.Action("Create", "Contacts", new { id = Model.ClientId })',
+                success: function (result) {
+                    $('#addNotes').html(result);
+                }
+            });
+        });
+    });
 </script>
 
 <h4>Email: @Model.Email</h4>
@@ -51,7 +62,21 @@
     {
         <hr />
         <h4>@x.Date.ToString("MM/dd/yyyy")</h4>
-        <p>@Html.ActionLink("EDIT", "Edit", new { id = @x.ContactId })</p>
+        <p ><strong class="edit-contact">EDIT</strong></p>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.edit-contact').click(function () {
+                    $.ajax({
+                        type: 'GET',
+                        dataType: 'html',
+                        url: '@Url.Action("Edit", "Contacts", new { id = @x.ContactId })',
+                        success: function (result) {
+                            $('#editNotes').html(result);
+                        }
+                    });
+                });
+            });
+        </script>
         <ul>
             <li>@Html.Raw(@x.Notes.Replace("\n", "<br />"))</li>
         </ul>
@@ -61,4 +86,8 @@ else if (ViewBag.Count == 0)
 {
     <p>test</p>
 }
-
+<div id="editNotes"></div>
+<br />
+<br />
+<button class="btn btn-success add-notes">Add Notes</button>
+<div id="addNotes"></div>

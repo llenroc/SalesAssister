@@ -4,10 +4,12 @@
 
 @model SalesAssister.Models.Client
 
+<h3>Add Contact Notes</h3>
+
+<button class="btn btn-xs btn-warning" onclick="myFunction()">Hide Form</button>
+
 @using (Html.BeginForm("addNotes", "Contacts"))
 {
-    <h3>Add Contact Notes</h3>
-
     <input type="hidden" name="ClientId" value="@Model.ClientId" />
 
     <div>Meeting Notes</div>
