@@ -1,14 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Sales Assister";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @model SalesAssister.Models.Contact
 
 <h3 class="salesPeople">EDIT</h3>
-
-<h3>Original Notes</h3>
-<p>@Html.Raw(Model.Notes.Replace("\n", "<br />"))</p>
 
 @using (Html.BeginForm("Edit", "Contacts"))
 {
@@ -16,7 +12,7 @@
 
     <input type="hidden" name="ContactId" value="@Model.ContactId" />
 
-    <textarea class="textBox" type="text" name="Notes" value="@Model.Notes"></textarea>
+    <textarea class="textBox" type="text" name="Notes" value="@Model.Notes" placeholder="@Model.Notes"></textarea>
 
     <div>Date</div>
     <input type="date" name="Date" value="@Model.Date" />

@@ -16,8 +16,6 @@ namespace SalesAssister.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
-        //public int SalesPersonId { get; set; }
-        //public virtual SalesPerson salesperson { get; set; }
         public virtual ApplicationUser User { get; set; }
     }
 }
