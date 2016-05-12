@@ -42,7 +42,7 @@ function ShowProfileData(profiles) {
     var lastName = member.lastName;
     var photo = member.pictureUrl;
     var headline = member.headline;
-
+    
     console.log(member);
     console.log(id);
     console.log(firstName);
@@ -54,6 +54,3 @@ function ShowProfileData(profiles) {
     $(".photo").append('<img src="' + photo + '"/>');
 }
 
-function logOut() {
-    IN.User.logout(callbackFunction, callbackScope);
-}
