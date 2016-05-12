@@ -21,6 +21,17 @@
         });
     });
 
+    $('.send-message').click(function () {
+        $.ajax({
+            type: 'GET',
+            dataType: 'html',
+            url: '~/../../Clients/SendMessage',
+            success: function (result) {
+                $('#sendMessage').html(result);
+            }
+        });
+    });
+
 });
 
 function myFunction() {
