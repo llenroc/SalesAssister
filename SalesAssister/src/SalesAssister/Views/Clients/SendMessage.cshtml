@@ -1,0 +1,25 @@
+﻿@model SalesAssister.Models.Message
+
+<h2 class="salesPeople">SEND APPOINTMENT REMINDER</h2>
+
+<button class="btn btn-xs btn-danger" onclick="myFunction()">Hide Form</button>
+
+@using (Html.BeginForm())
+{
+    <p><strong>Contact Name</strong></p>
+    <div>
+        @Html.LabelFor(model => model.To)
+        @Html.DropDownList("To")
+    </div>
+    <div>
+        <input hidden name="From" type="text" value="+19712642343" />
+    </div>
+    <div>
+        <p>Reminder Message</p>
+       
+        @Html.TextAreaFor(model => model.Body)
+    </div>
+
+    <br />
+    <input type="submit" class="btn btn-success" value="Send Reminder" />
+}

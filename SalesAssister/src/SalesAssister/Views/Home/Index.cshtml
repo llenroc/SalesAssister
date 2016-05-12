@@ -11,9 +11,16 @@
 
 @if (User.IsSignedIn())
 {
-    <h2>Hello @User.GetUserName()</h2>
+    <h2><span class="photo"></span>  Hello @User.GetUserName()</h2>
+    <div class="in"></div>
+
+    <div id="connect">
+        <script type="in/Login">
+        </script>
+    </div>
     <br />
     <h4 class="salesPeople">@Html.ActionLink("CLIENTS", "Index", "Clients")</h4>
+    
     @if (User.IsInRole("Admin"))
     {
 
@@ -25,6 +32,11 @@ else
 {
     <button class="btn btn-success register">REGISTER!</button>
     <div id="registerForm"></div>
+
+    <br />
+    
 }
+
+
 
 

@@ -92,6 +92,19 @@ namespace SalesAssister.Controllers
 
         }
 
-        
+        public IActionResult SendMessage()
+        {
+            ViewBag.To = new SelectList(_db.Clients, "Phone", "Name");
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SendMessage(Message newMessage)
+        {
+            newMessage.Send();
+
+            return RedirectToAction("Index", "Clients");
+        }
     }
 }

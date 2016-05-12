@@ -15,5 +15,10 @@ namespace SalesAssister.Controllers
         {
             return View();
         }
+
+        public IActionResult Connect()
+        {
+            return View();
+        }
     }
 }
