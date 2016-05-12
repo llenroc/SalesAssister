@@ -14,6 +14,14 @@
     <h2>Hello @User.GetUserName()</h2>
     <br />
     <h4 class="salesPeople">@Html.ActionLink("CLIENTS", "Index", "Clients")</h4>
+    
+    <h4>Connect to LinkedIn</h4>
+    <script type="in/Login">
+
+    </script>
+
+    <div class="in"></div>
+
     @if (User.IsInRole("Admin"))
     {
 
@@ -25,6 +33,40 @@ else
 {
     <button class="btn btn-success register">REGISTER!</button>
     <div id="registerForm"></div>
+
+    <br />
+    
 }
+
+<script type="text/javascript">
+    function OnLinkedInFrameworkLoad() {
+        IN.Event.on(IN, "auth", OnLinkedInAuth);
+    }
+
+    function OnLinkedInAuth() {
+        IN.API.Profile("me").result(ShowProfileData);
+    }
+
+    function ShowProfileData(profiles) {
+        var member = profiles.values[0];
+        var id = member.id;
+        var firstName = member.firstName;
+        var lastName = member.lastName;
+        var photo = member.pictureUrl;
+        var headline = member.headline;
+
+        console.log(member);
+        console.log(id);
+        console.log(firstName);
+        console.log(lastName);
+        console.log(headline);
+        //use information captured above
+
+        $(".in").append('<h3>' + firstName + lastName + '</h3>');
+        $(".in").append('<img src="' + photo + '"/>');
+    }
+
+    
+</script>
 
 
