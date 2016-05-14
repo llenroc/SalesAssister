@@ -9,28 +9,21 @@ This is a free online CRM tool, built in the .NET framework with Visual Studio.
   - C#
   - CSHTML
   - .NET 
+  - AJAX
+  - JQuery
+  - Javascript
+  - CSS
   - Microsoft SQL server.
  
-  
-## Database Information
-  - Database name = "SalesAssister"
-  - First table includes the Sales People, their id and name.
-  - Second table includes the Clients, their id, name, phone number and email.
-  - A third table is for each clients contact notes, with the sales person that added it and for which client it is for.
-  
 ## Setup Instructions
 
-Clone this project to your machine in Visual Studio. Copy the data.sql file and create the database for the project in Microsoft SQL Server.
-
-### To Setup the DB in Microsoft SQL Server Management Studio
-- Open the program.
-- Open the SQL file on your computer, File>Open>New File
-- Once the code appears in your program, above the existing code, add the code >CREATE DATABASE shoe_stores, then >GO on the line below.
-- After this click the execute button above.
+Clone this project to your machine in Visual Studio. Copy the MyData.sql file and create the database for the project in Microsoft SQL Server.
 
 ## Project description
 
-Once you have successfully setup everything and can access the site you will be able to view a home page, a page for indidual sales people, a page for their clients and a page for contact notes for each client.  
+Once you have successfully setup the database you can run the program from "web" option in Visual Studio. Once the project builds you can access it at http://localhost:5000. By clicking the green "Register" button the user will be able to register for a free account and start keeping track of all of their clients, interactions with those clients and send them text message reminders for appointments. 
+
+I have also included a login option for LinkedIn, allowing the user to access LinkedIn from the Sales Assister site. 
 
 Copyright: Michael Anthony Smith 2016
 
