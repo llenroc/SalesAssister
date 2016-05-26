@@ -20,13 +20,13 @@
     </div>
     <br />
     <h4 class="salesPeople">@Html.ActionLink("CLIENTS", "Index", "Clients")</h4>
-    
+ 
     @if (User.IsInRole("Admin"))
     {
 
         <p>@Html.ActionLink("USER ROLES", "Create", "Roles")</p>
 
-    }
+        }
 }
 else
 {
