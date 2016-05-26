@@ -83,9 +83,6 @@ namespace SalesAssister.Controllers
 
             _db.SaveChanges();
 
-            //ViewBag.Client = _db.Clients
-            //    .FirstOrDefault(x => x.ClientId == id);
-
             return RedirectToAction("Index", "Clients");
         }
 
