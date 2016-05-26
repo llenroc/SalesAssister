@@ -1,0 +1,3 @@
+﻿https://mfa.acceptto.com/api/v9/authenticate_with_options?message=My+Application+is+wishing+to+authorize&type=Login&email=bulbulir11@hotmail.com&uid=06ec7d21cb4b89214a08ea1b31c7d6fbc230bfd1d7dfcf95bee1cd056695ef49&secret=89fd1fc3bf714664023e05563a4859210ab868c702631f9253e96c9eb8e1cf4f
+              
+https://mfa.acceptto.com/mfa/index?channel=a967d5ccb28cfb75a21aac14efb6f262&callback_url=http://localhost:5000/auth/mfa_check         
